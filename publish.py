@@ -1,7 +1,7 @@
 import redis
 
 # Connect to ElastiCache Redis
-client = redis.StrictRedis(host='rediscluster.eulx8y.ng.0001.use1.cache.amazonaws.com', port=6379, db=0)
+client = redis.StrictRedis(host='PRIMARY-ENDPOINT', port=6379, db=0)
 
 # Publish a message  
 def publish_message(channel, message):
