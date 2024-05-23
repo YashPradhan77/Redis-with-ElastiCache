@@ -1,7 +1,7 @@
 import redis
 
 # Connect to the Redis server
-client = redis.StrictRedis(host='rediscluster.eulx8y.ng.0001.use1.cache.amazonaws.com', port=6379, db=0)
+client = redis.StrictRedis(host='PRIMARY-ENDPOINT', port=6379, db=0)
 
 def message_handler(message):
     if message['type'] == 'message':
