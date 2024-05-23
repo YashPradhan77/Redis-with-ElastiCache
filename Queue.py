@@ -31,7 +31,7 @@ class RedisQueue:
 
 # Usage example
 if __name__ == "__main__":
-    host = 'rediscluster.eulx8y.ng.0001.use1.cache.amazonaws.com'
+    host = 'PRIMARY-ENDPOINT'
     port = 6379
 
     queue = RedisQueue(host, port)
