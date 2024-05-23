@@ -1,7 +1,7 @@
 import redis
 
 redis_client = redis.StrictRedis(
-    host='rediscluster.eulx8y.ng.0001.use1.cache.amazonaws.com:6379', 
+    host='PRIMARY-ENDPOINT', 
     port=6379, 
     decode_responses=True
 )
