@@ -40,9 +40,3 @@ In redis Pub/Sub, You publish a message to a channel , and any subscriber to tha
 
 # For Queues & DLQ
 In redis queues , a queue can be implemented using lists , a list will be automatically created when pushed an item onto it.
-
-
- 
-
-4. Obtain Primary Endpoint from Redis Cluster
-5. Then run the python script —>
