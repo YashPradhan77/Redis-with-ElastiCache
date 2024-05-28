@@ -26,7 +26,7 @@ Such as
 
 → ssh to instance and setup python environment
 
-install pip , redis
+-> install pip , redis
 
 4. Obtain Primary Endpoint from Redis Cluster
    
