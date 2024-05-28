@@ -26,7 +26,23 @@ Such as
 
 → ssh to instance and setup python environment
 
- install pip , redis
+install pip , redis
+
+4. Obtain Primary Endpoint from Redis Cluster
+   
+5. Then run the python script
+
+# For Caching 
+Redis uses the 'set' & 'get' commands to store and retrieve data
+
+# For Pub/Sub
+In redis Pub/Sub, You publish a message to a channel , and any subscriber to that channel will recieve the message
+
+# For Queues & DLQ
+In redis queues , a queue can be implemented using lists , a list will be automatically created when pushed an item onto it.
+
+
+ 
 
 4. Obtain Primary Endpoint from Redis Cluster
 5. Then run the python script —>
