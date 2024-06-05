@@ -48,8 +48,8 @@ Code: publish.py , subscribe.py
 ![Screenshot 2024-06-05 143456](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/0e8ad6b0-aec1-40df-b71a-0cc577b2feee)
 ![Screenshot 2024-06-05 144009](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/582640cb-55a7-4fe4-be4d-5fafdb141501)
 
-**output:
-**
+Output:
+
 ![Screenshot 2024-06-05 143917](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/4624ff52-d906-43a7-a346-aa5a35b8b537)
 ![Screenshot 2024-06-05 144009](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/5d30704c-f96c-4954-a584-4c84680acb7b)
 
@@ -58,9 +58,9 @@ In the following output , a user publishes a message to a channel , and another 
 # For Queues & DLQ
 In redis queues , a queue can be implemented using lists , a list will be automatically created when pushed an item onto it.
 Code: queue.py 
-**Output:
-**
+Output:
+
 ![Screenshot 2024-06-05 145051](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/1f264271-63ca-4dab-a791-e0e2023b07e3)
 
-**Explanation:**
+Explanation:
 In the following output , Incoming messages are first queued to be processed further . Once the messages are processed successfuly  , they are cleared from the queue . messages which show an error are not processed and are moved to DLQ(Dead letter Queue)
