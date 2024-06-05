@@ -1,6 +1,6 @@
-# Redis With ElastiCache
+# Redis With ElastiCache Implementation Documentation
 
-dummy python code for all use case scenario of Redis Streams and Redis Cache purpose using ElastiCache Redis
+dummy python code for all use case scenario of Redis Streams , Queues and Redis Cache purpose using ElastiCache Redis 
 
 Such as
 
@@ -16,7 +16,7 @@ Such as
 
 1. Create an ElastiCache Redis Cluster 
 
-→ Set node type & Number of nodes
+→ Configure your cluster by setting the name, node type, number of replicas, and other necessary parameters.
 
 2. Configure Security group 
 
@@ -26,14 +26,15 @@ Such as
 
 → ssh to instance and setup python environment
 
--> install pip , redis
+-> install python3 , pip , redis
 
 4. Obtain Primary Endpoint from Redis Cluster
 
-5. Then run the python script
+5. Then run the python scripts as follows: 
 
 # For Caching 
 
+Redis can be used as a caching layer to store frequently accessed data.
 Redis uses the 'set' & 'get' commands to store and retrieve data
 Where the 'Set' command obtains the data and stores it as a key-value pair to be rendered whenever 'get' command is given.
 Code: Caching.py
@@ -43,6 +44,8 @@ The above code generates the following output:
 ![Screenshot 2024-06-05 135412](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/c6cabbff-7cf4-4b1d-bc1b-331412277186)
 
 # For Pub/Sub 
+
+Redis Pub/Sub allows for message broadcasting to multiple subscribers.
 In redis Pub/Sub, You publish a message to a channel , and any subscriber to that channel will recieve the message
 Code: publish.py , subscribe.py
 
@@ -57,6 +60,8 @@ In the following output , a user publishes a message to a channel , and another 
 
 # For Queues & DLQ
 In redis queues , a queue can be implemented using lists , a list will be automatically created when pushed an item onto it.
+Redis lists are used to implement queues. The RPUSH and LPOP commands are typically used to enqueue and dequeue items respectively.
+
 Code: queue.py 
 Output:
 
