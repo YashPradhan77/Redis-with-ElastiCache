@@ -39,8 +39,30 @@ Redis uses the 'set' & 'get' commands to store and retrieve data
 Where the 'Set' command obtains the data and stores it as a key-value pair to be rendered whenever 'get' command is given.
 
 Code: Caching.py
+```
+import redis
 
-![Screenshot 2024-06-05 105619](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/7eaab256-0aa6-481b-b2c4-b56889ce1a6d)
+redis_client = redis.StrictRedis(
+    host='redis.eulx8y.ng.0001.use1.cache.amazonaws.com', 
+    port=6379, 
+    decode_responses=True
+)
+
+def cache_set(key, value, expire_seconds=None):
+    redis_client.set(name=key, value=value, ex=expire_seconds)
+    print(f"Cached: {key} = {value}")
+
+def cache_get(key):
+    value = redis_client.get(name=key)
+    print(f"Retrieved from cache: {key} = {value}")
+    return value
+
+cache_set('key', 'value', expire_seconds=3600)
+cache_get('key')
+    
+```
+
+
 The above code generates the following output:
 
 ![Screenshot 2024-06-05 135412](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/c6cabbff-7cf4-4b1d-bc1b-331412277186)
@@ -50,14 +72,52 @@ The above code generates the following output:
 Redis Pub/Sub allows for message broadcasting to multiple subscribers.
 In redis Pub/Sub, You publish a message to a channel , and any subscriber to that channel will recieve the message
 
-Code: publish.py , subscribe.py
+Code: Publish.py 
+```
+import redis
+# Connect to ElastiCache Redis
+client = redis.StrictRedis(host='rediscluster.eulx8y.ng.0001.use1.cache.amazonaws.com', port=6379, db=0)
 
-![Screenshot 2024-06-05 143456](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/0e8ad6b0-aec1-40df-b71a-0cc577b2feee)
+# Publish a message
+# client.publish('my_channel', 'Hello, Redis Pub/Sub!')
+    
+def publish_message(channel, message):
+    client.publish(channel, message)
+    print(f"Published message: {message} to channel: {channel}")
 
+publish_message("my_channel","Hello")
+```
+
+![Screenshot 2024-06-05 144009](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/5d30704c-f96c-4954-a584-4c84680acb7b)
+
+subscribe.py
+```
+import redis
+
+# Connect to the Redis server
+client = redis.StrictRedis(host='rediscluster.eulx8y.ng.0001.use1.cache.amazonaws.com', port=6379, db=0)
+
+def message_handler(message):
+    if message['type'] == 'message':
+        print(f"Received message: {message['data'].decode('utf-8')}")
+
+if __name__ == "__main__":
+    pubsub = client.pubsub()
+    pubsub.subscribe('my_channel')
+    
+    print("Subscribed to 'my_channel'. Waiting for messages...")
+    
+    try:
+        for message in pubsub.listen():
+            message_handler(message)
+    except KeyboardInterrupt:
+        print("Unsubscribing and exiting...")
+        pubsub.unsubscribe('my_channel')
+
+```
 Output:
 
 ![Screenshot 2024-06-05 143917](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/4624ff52-d906-43a7-a346-aa5a35b8b537)
-![Screenshot 2024-06-05 144009](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/5d30704c-f96c-4954-a584-4c84680acb7b)
 
 In the following output , a user publishes a message to a channel , and another user who has subscriber to the channel will recieve the message
 
@@ -66,6 +126,7 @@ In redis queues , a queue can be implemented using lists , a list will be automa
 Redis lists are used to implement queues. The RPUSH and LPOP commands are typically used to enqueue and dequeue items respectively.
 
 Code: queue.py 
+
 Output:
 
 ![Screenshot 2024-06-05 145051](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/1f264271-63ca-4dab-a791-e0e2023b07e3)
