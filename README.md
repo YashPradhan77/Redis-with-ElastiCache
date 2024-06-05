@@ -29,10 +29,11 @@ Such as
 -> install pip , redis
 
 4. Obtain Primary Endpoint from Redis Cluster
-   
+
 5. Then run the python script
 
 # For Caching 
+![Screenshot 2024-06-05 105619](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/7eaab256-0aa6-481b-b2c4-b56889ce1a6d)
 Redis uses the 'set' & 'get' commands to store and retrieve data
 
 # For Pub/Sub
