@@ -38,6 +38,7 @@ Redis uses the 'set' & 'get' commands to store and retrieve data
 
 ![Screenshot 2024-06-05 105619](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/7eaab256-0aa6-481b-b2c4-b56889ce1a6d)
 The above code generates the following output:
+
 ![Screenshot 2024-06-05 135412](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/c6cabbff-7cf4-4b1d-bc1b-331412277186)
 
 # For Pub/Sub
