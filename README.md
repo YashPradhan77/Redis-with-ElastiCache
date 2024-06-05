@@ -46,11 +46,13 @@ The above code generates the following output:
 In redis Pub/Sub, You publish a message to a channel , and any subscriber to that channel will recieve the message
 Code:
 ![Screenshot 2024-06-05 143456](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/0e8ad6b0-aec1-40df-b71a-0cc577b2feee)
+
 output:
+
 ![Screenshot 2024-06-05 143917](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/4624ff52-d906-43a7-a346-aa5a35b8b537)
 ![Screenshot 2024-06-05 144009](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/5d30704c-f96c-4954-a584-4c84680acb7b)
 
-
+In the following output , a user publishes a message to a channel , and another user who has subscriber to the channel will recieve the message
 
 # For Queues & DLQ
 In redis queues , a queue can be implemented using lists , a list will be automatically created when pushed an item onto it.
