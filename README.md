@@ -35,6 +35,7 @@ Such as
 # For Caching 
 
 Redis uses the 'set' & 'get' commands to store and retrieve data
+Where the 'Set' command obtains the data and stores it as a key-value pair to be rendered whenever 'get' command is given.
 
 ![Screenshot 2024-06-05 105619](https://github.com/YashPradhan77/Redis-with-ElastiCache/assets/83752766/7eaab256-0aa6-481b-b2c4-b56889ce1a6d)
 The above code generates the following output:
